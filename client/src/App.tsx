@@ -65,40 +65,61 @@ function App() {
 
   return (
     <>
-      <h1>Socket</h1>
-      <div className="card">
-        {/* Room selection buttons */}
-        <div>
-          <button onClick={() => selectRoom('room1')}>Room 1</button>
-          <button onClick={() => selectRoom('room2')}>Room 2</button>
-        </div>
-        {/* Chat message area */}
-        <div className="chat-container">
-          {messages.map((msg, index) => (
-            <div key={index} className="message">
-              {msg}
-            </div>
-          ))}
-        </div>
-        {/* Input message area */}
-        <div className="input-container">
-          <input
-            type="text"
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            placeholder="Enter message..."
-          />
-          <button onClick={sendMessage}>Send Message</button>
-        </div>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      {/* Sidebar Room */}
+      <div className="w-1/4 bg-gray-800 text-white p-4 overflow-y-auto fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
+        <h1 className="text-2xl font-bold mb-4">Rooms</h1>
+        <button
+          onClick={() => selectRoom('room1')}
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Room 1
+        </button>
+        <button
+          onClick={() => selectRoom('room2')}
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Room 2
+        </button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <div className="min-h-screen bg-gray-100 flex sm:ml-64">
+
+        {/* Main content */}
+        <div className="flex-1 flex flex-col">
+          <div className="card bg-white shadow-md rounded-lg max-w-8xl w-full mx-auto flex-1">
+            <div className="chat-container m-4 max-h-97 overflow-y-auto">
+              {messages.map((msg, index) => (
+                <div key={index} className="message bg-gray-200 p-2 rounded mb-2">
+                  {msg}
+                </div>
+              ))}
+            </div>
+            {/*           
+          <p className="mt-4 text-sm text-gray-500">
+            Edit <code className="bg-gray-200 p-1 rounded">src/App.tsx</code> and save to test HMR
+          </p> */}
+          </div>
+
+          <div className="input-container flex items-end sticky bottom-0 bg-white p-4">
+            <input
+              type="text"
+              value={inputMessage}
+              onChange={(e) => setInputMessage(e.target.value)}
+              placeholder="Enter message..."
+              className="flex-1 py-2 px-4 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button
+              onClick={sendMessage}
+              className="ml-2 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
+
 
 export default App
