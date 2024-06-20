@@ -13,8 +13,8 @@ def receive_messages(client_socket):
             print(f"Error receiving message: {e}")
             break
 
-# กำหนด IP address และ port ของเซิร์ฟเวอร์
-HOST = 'เป็น IP address ของเซิร์ฟเวอร์'
+# รับ input จากผู้ใช้เพื่อระบุ IP address ของเซิร์ฟเวอร์
+HOST = input("Enter server IP address: ")
 PORT = 12345
 
 # สร้าง socket object
