@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "pkg": "^5.8.1"
+  },
+  "name": "core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "pkg -t node12-win-x64 ./index.js"
+  },
+  "author": "Nutto",
+  "license": "ISC",
+  "description": ""
+}
